@@ -20,7 +20,7 @@ gcloud container node-pools create mq2ps-pool --cluster mq2ps  \
 kubectl apply -f https://github.com/rabbitmq/cluster-operator/releases/latest/download/cluster-operator.yml
 
 
-kubectl apply -f rabbit_cluster.sh
+kubectl apply -f rabbitmq_cluster.sh
 
 
 kubectl get rabbitmqcluster
@@ -28,7 +28,10 @@ kubectl get rabbitmqcluster
 #Get user name:
 kubectl get secret $MQ_CLUSTER-default-user -o jsonpath='{.data.username}' | base64 --decode
 ###Password
-$ kubectl get secret $MQ_CLUSTER-default-user -o jsonpath='{.data.password}' | base64 --decode
+kubectl get secret $MQ_CLUSTER-default-user -o jsonpath='{.data.password}' | base64 --decode
+
+### External IP for integration:
+kubectl get svc $MQ_CLUSTER -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
 
 
 
