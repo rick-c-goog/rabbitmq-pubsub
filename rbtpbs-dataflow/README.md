@@ -20,3 +20,18 @@ mvn  exec:java  -Dexec.mainClass=org.dataflow.RabbitMQToPubSubDataflow
 ```
 Push a message to RabbitMQ through console or program. 
 Check the message published to GCP pubsub, pull the messages under pubsub topic
+
+
+
+mvn -Pdataflow-runner compile exec:java \
+    -Dexec.mainClass=org.dataflow.RabbitMQToPubSubDataflow \
+    -Dexec.args="--project=PROJECT_ID \
+    --gcpTempLocation=gs://BUCKET_NAME/temp/ \
+    --output=gs://BUCKET_NAME/output \
+    --runner=DataflowRunner \
+    --region=REGION" \
+    --User_Name=XXX" \
+    --Password=XXX" \
+    --Host=XXX" \
+    --Topic=XXX" \
+    --Queue=xxx" 
