@@ -18,9 +18,33 @@ public class RabbitMQToPubSubDataflow  {
 
     // Custom options for connecting to RabbitMQ and Pub/Sub
     public interface RabbitMQToPubSubOptions extends PipelineOptions {
+        @Description("Username command line argument.")
+        @Default.String("user_")
+        String getUserName();
+        void setUserName(String userName);
+       
+        @Description("Password command line argument.")
+        @Default.String("password_")
+        String getPassword();
+        void setPassword(String password);
+
+        @Description("Host command line argument.")
+        @Default.String("host_")
+        String getHost();
+        void setHost(String host);
+
+        @Description("Pubsub Topic command line argument.")
+        @Default.String("topic_")
+        String getTopic();
+        void setTopic(String topic);
+
+        @Description("RabbitMQ queue command line argument.")
+        @Default.String("queue")
+        String getQueue();
+        void setQueue(String queue);
         // Add getters and setters for necessary RabbitMQ and Pub/Sub options
     }
-
+    PipelineOptionsFactory.register(RabbitMQToPubSubOptions.class);
     static class FormatForPubSub extends DoFn<String, String> {
         @ProcessElement
         public void processElement(ProcessContext context) {
@@ -38,11 +62,11 @@ public class RabbitMQToPubSubDataflow  {
                                           .as(RabbitMQToPubSubOptions.class);
 
         Pipeline pipeline = Pipeline.create(options);
-        String user=System.getenv("USER_ID");
-        String password=System.getenv("PASSWORD");
-        String host=System.getenv("HOST");
-        String queue=System.getenv("QUEUE");
-        String pubsubTopic=System.getenv("TOPIC");
+        String user=options.getUserName();
+        String password=options.getPassword();
+        String host=options.getHost();
+        String queue=options.getQueue();
+        String pubsubTopic=options.getQueue();
         /*
         RabbitMqMessage message = new RabbitMqMessage("my_message");
         
