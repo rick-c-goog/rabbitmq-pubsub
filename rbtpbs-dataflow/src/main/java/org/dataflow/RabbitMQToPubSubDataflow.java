@@ -70,7 +70,7 @@ public class RabbitMQToPubSubDataflow  {
         String password=options.getPassword();
         String host=options.getHost();
         String queue=options.getQueue();
-        String pubsubTopic=options.getQueue();
+        String pubsubTopic=options.getTopic();
         /*
         RabbitMqMessage message = new RabbitMqMessage("my_message");
         
