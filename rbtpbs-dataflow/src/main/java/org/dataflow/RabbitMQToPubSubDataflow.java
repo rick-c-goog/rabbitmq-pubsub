@@ -44,7 +44,7 @@ public class RabbitMQToPubSubDataflow  {
         void setQueue(String queue);
         // Add getters and setters for necessary RabbitMQ and Pub/Sub options
     }
-    PipelineOptionsFactory.register(RabbitMQToPubSubOptions.class);
+    //PipelineOptionsFactory.register(RabbitMQToPubSubOptions.class);
     static class FormatForPubSub extends DoFn<String, String> {
         @ProcessElement
         public void processElement(ProcessContext context) {
