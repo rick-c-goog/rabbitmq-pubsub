@@ -27,11 +27,10 @@ mvn -Pdataflow-runner compile exec:java \
     -Dexec.mainClass=org.dataflow.RabbitMQToPubSubDataflow \
     -Dexec.args="--project=PROJECT_ID \
     --gcpTempLocation=gs://BUCKET_NAME/temp/ \
-    --output=gs://BUCKET_NAME/output \
     --runner=DataflowRunner \
     --region=REGION" \
-    --User_Name=XXX" \
-    --Password=XXX" \
-    --Host=XXX" \
-    --Topic=XXX" \
-    --Queue=xxx" 
+    --userName=XXX" \
+    --password=XXX" \
+    --host=XXX" \
+    --topic=XXX" \
+    --queue=xxx" 
