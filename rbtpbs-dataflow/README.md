@@ -21,7 +21,9 @@ mvn  exec:java  -Dexec.mainClass=org.dataflow.RabbitMQToPubSubDataflow
 Push a message to RabbitMQ through console or program. 
 Check the message published to GCP pubsub, pull the messages under pubsub topic
 
+To publish the the pipeline to dataflow, 
 
+Make sure the project-number-compute@developer service account has Dataflow developer IAM permission
 
 mvn -Pdataflow-runner compile exec:java \
     -Dexec.mainClass=org.dataflow.RabbitMQToPubSubDataflow \
@@ -34,3 +36,5 @@ mvn -Pdataflow-runner compile exec:java \
     --host=XXX" \
     --topic=XXX" \
     --queue=xxx" 
+
+
