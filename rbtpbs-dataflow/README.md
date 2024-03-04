@@ -30,11 +30,11 @@ mvn -Pdataflow-runner compile exec:java \
     -Dexec.args="--project=PROJECT_ID \
     --gcpTempLocation=gs://BUCKET_NAME/temp/ \
     --runner=DataflowRunner \
-    --region=REGION" \
-    --userName=XXX" \
-    --password=XXX" \
-    --host=XXX" \
-    --topic=XXX" \
+    --region=REGION \
+    --userName=XXX \
+    --password=XXX \
+    --host=XXX \
+    --topic=XXX \
     --queue=xxx" 
 
 
