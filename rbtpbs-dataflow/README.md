@@ -6,7 +6,7 @@
 mvn clean install
 ```
 
-setup a few variables before test the apache bean pipleline locally
+setup a few variables before test the apache bean pipleline locally(only run for local command)
 ```
 export USER_ID=XXXX # Username for RabbitMQ credential
 export PASSWORD=XXX  # Password for RabbitMQ credential
@@ -25,6 +25,7 @@ To publish the the pipeline to dataflow,
 
 Make sure the project-number-compute@developer service account has Dataflow developer IAM permission
 
+```
 mvn -Pdataflow-runner compile exec:java \
     -Dexec.mainClass=org.dataflow.RabbitMQToPubSubDataflow \
     -Dexec.args="--project=PROJECT_ID \
@@ -36,5 +37,5 @@ mvn -Pdataflow-runner compile exec:java \
     --host=XXX \
     --topic=XXX \
     --queue=xxx" 
-
+```
 
